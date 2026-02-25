@@ -25,10 +25,21 @@ function App() {
     setTodos(todos.filter(t => t.id !== id))
   }
 
+  const getRemainingCount = (): number => {
+    return todos.filter(t => !t.completed).length
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-start justify-center pt-16">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">Todo App</h1>
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">Todo App</h1>
+          {todos.length > 0 && (
+            <span className="text-sm text-blue-500 font-medium">
+              残り {getRemainingCount()} 件
+            </span>
+          )}
+        </div>
 
         <div className="flex gap-2 mb-6">
           <input
