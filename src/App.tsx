@@ -25,7 +25,7 @@ function App() {
     setTodos(todos.filter(t => t.id !== id))
   }
 
-  const getRemainingCount = (): string => {
+  const getRemainingCount = (): number => {
     return todos.filter(t => !t.completed).length
   }
 
