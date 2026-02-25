@@ -79,9 +79,17 @@ function App() {
         )}
 
         {todos.length > 0 && (
-          <p className="text-xs text-gray-400 mt-4 text-right">
-            {todos.filter(t => t.completed).length} / {todos.length} 完了
-          </p>
+          <div className="flex items-center justify-between mt-4">
+            <button
+              onClick={() => setTodos([])}
+              className="text-xs text-red-400 hover:text-red-600 transition-colors cursor-pointer"
+            >
+              すべて削除
+            </button>
+            <p className="text-xs text-gray-400">
+              {todos.filter(t => t.completed).length} / {todos.length} 完了
+            </p>
+          </div>
         )}
       </div>
     </div>
